@@ -12,9 +12,9 @@ app.use(cors({ origin: true }));
 
 app.use('/projects/', projects);
 
-const start = () => {
+const start = async () => {
   try {
-    connectDB();
+    await mongoose.connect(process.env.MONGO_URI);
     app.listen(port, () => {
       console.log('Listening on:', port);
     });
