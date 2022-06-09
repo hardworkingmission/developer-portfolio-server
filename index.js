@@ -13,8 +13,9 @@ app.use(cors({ origin: true }));
 app.use('/projects/', projects);
 
 const start = async () => {
+  const uri = `mongodb+srv://shakil:TQxOSOiS6mhoMNqh@cluster0.ogvv6.mongodb.net/developer_portfolio?retryWrites=true&w=majority`;
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(uri);
     app.listen(port, () => {
       console.log('Listening on:', port);
     });
